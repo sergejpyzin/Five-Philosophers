@@ -15,7 +15,6 @@ public class Table {
     }
 
     private void createTable() {
-        Table table = new Table();
         createForks();
         createPhilosophers();
 
@@ -40,6 +39,15 @@ public class Table {
         createTable();
         for (Philosopher philosopher : philosophers) {
             new Thread(philosopher).start();
+        }
+        pause();
+    }
+
+    private void pause(){
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 
